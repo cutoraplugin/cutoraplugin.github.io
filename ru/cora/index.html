@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ru" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Кора — помощница по монтажу внутри Premiere Pro | Cutora</title>
+<meta name="description" content="Спросите Кору, как сделать что-то в Cutora или в монтаже. Она работает без интернета и говорит на шести языках.">
+
+<meta name="theme-color" content="#130b07">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-ojqQw0z5OToSxokUlmT26+bd9fAnWqrDKX73PjeniPM='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Кора — помощница по монтажу внутри Premiere Pro | Cutora">
+<meta property="og:description" content="Спросите Кору, как сделать что-то в Cutora или в монтаже. Она работает без интернета и говорит на шести языках.">
+<meta property="og:image" content="https://cutoraplugin.github.io/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="en" href="https://cutoraplugin.github.io/cora/">
+<link rel="alternate" hreflang="ru" href="https://cutoraplugin.github.io/ru/cora/">
+<link rel="alternate" hreflang="es" href="https://cutoraplugin.github.io/es/cora/">
+<link rel="alternate" hreflang="pt" href="https://cutoraplugin.github.io/pt/cora/">
+<link rel="alternate" hreflang="de" href="https://cutoraplugin.github.io/de/cora/">
+<link rel="alternate" hreflang="ar" href="https://cutoraplugin.github.io/ar/cora/">
+<link rel="alternate" hreflang="x-default" href="https://cutoraplugin.github.io/cora/">
+<link rel="canonical" href="https://cutoraplugin.github.io/ru/cora/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../../fonts/unbounded.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../fonts/onest.woff2" as="font" type="font/woff2" crossorigin>
+<script>try{var t=localStorage.getItem("cutora-theme");document.documentElement.dataset.theme=t==="light"||t==="ember"?t:matchMedia("(prefers-color-scheme: light)").matches?"light":"ember"}catch(e){}</script>
+<link rel="stylesheet" href="../../css/site.css?v=mupoy3ao">
+</head>
+<body data-page="cora">
+<div class="glow-field" aria-hidden="true"></div>
+<a class="visually-hidden skip" href="#main">Перейти к содержимому</a>
+
+<div class="langbar" id="langbar" hidden>
+  <div class="wrap">
+    <p id="langbar-text"></p>
+    <a class="btn btn-fire" id="langbar-go" href="#"></a>
+    <button class="icon-btn" id="langbar-x" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="../../ru/"><span class="logo-dot" aria-hidden="true"></span>Cutora</a>
+    <ul class="menu" aria-label="Главное меню">
+      <li class="has-drop">
+        <button type="button" id="mods-btn" aria-expanded="false" aria-controls="mods-drop">Возможности<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="drop" id="mods-drop" hidden><a class="mod-link" href="../../ru/cut/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="7" r="2.6"/><circle cx="6" cy="17" r="2.6"/><path d="M8.2 8.4 20 17M8.2 15.6 20 7"/></svg></span><b>Нарезка</b><small>Убирает паузы и дубли</small></a><a class="mod-link" href="../../ru/captions/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 14h4M13 14h4M7 10.5h10"/></svg></span><b>Субтитры</b><small>Анимированные, без интернета</small></a><a class="mod-link" href="../../ru/motion/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 19C9 19 9 5 21 5"/><circle cx="3" cy="19" r="1.6"/><circle cx="21" cy="5" r="1.6"/></svg></span><b>Анимация</b><small>Кривые, анимации, тряска</small></a><a class="mod-link" href="../../ru/sounds/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9.2a4 4 0 0 1 0 5.6M18.3 6.6a8 8 0 0 1 0 10.8"/></svg></span><b>Звуки</b><small>Переходы и эффекты</small></a><a class="mod-link" href="../../ru/media/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9.2 5 2.8-5 2.8z"/><path d="M12 2.5v2.2M9.8 3.8 12 5.2l2.2-1.4"/></svg></span><b>Медиа</b><small>Видео по ссылке, футажи</small></a><a class="mod-link" href="../../ru/cora/" aria-current="page"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5V7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H8.5z"/><path d="M9 10h.01M12 10h.01M15 10h.01" stroke-width="2.4"/></svg></span><b>Кора</b><small>Помощница внутри Premiere</small></a></div>
+      </li>
+      <li><a href="../../ru/buy/">Цена</a></li>
+      <li><a href="../../ru/install/">Установка</a></li>
+      <li><a href="../../ru/#faq">Вопросы</a></li>
+    </ul>
+    <div class="top-tools">
+      <button class="icon-btn" id="theme-toggle" type="button" aria-pressed="true" aria-label="Тёмная тема" title="Тёмная тема">
+        <svg class="when-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+        <svg class="when-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>
+      </button>
+      <button class="icon-btn" id="sound-toggle" type="button" aria-pressed="true" aria-label="Звуки" title="Звуки">
+        <svg class="when-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9.2a4 4 0 0 1 0 5.6M18.3 6.6a8 8 0 0 1 0 10.8"/></svg>
+        <svg class="when-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="m16 9.5 5 5M21 9.5l-5 5"/></svg>
+      </button>
+      <details class="lang">
+        <summary aria-label="Язык">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3Z"/></svg>
+          RU
+        </summary>
+        <ul><li><a href="../../cora/" hreflang="en" lang="en" data-lang-link="en">English</a></li><li><a href="../../ru/cora/" hreflang="ru" lang="ru" data-lang-link="ru" aria-current="true">Русский</a></li><li><a href="../../es/cora/" hreflang="es" lang="es" data-lang-link="es">Español</a></li><li><a href="../../pt/cora/" hreflang="pt" lang="pt" data-lang-link="pt">Português</a></li><li><a href="../../de/cora/" hreflang="de" lang="de" data-lang-link="de">Deutsch</a></li><li><a href="../../ar/cora/" hreflang="ar" lang="ar" data-lang-link="ar">العربية</a></li></ul>
+      </details>
+      <a class="btn btn-fire top-buy" href="../../ru/buy/">Купить</a>
+      <button class="icon-btn burger" id="burger" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Меню">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="mods"><a class="mod-link" href="../../ru/cut/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="7" r="2.6"/><circle cx="6" cy="17" r="2.6"/><path d="M8.2 8.4 20 17M8.2 15.6 20 7"/></svg></span><b>Нарезка</b><small>Убирает паузы и дубли</small></a><a class="mod-link" href="../../ru/captions/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 14h4M13 14h4M7 10.5h10"/></svg></span><b>Субтитры</b><small>Анимированные, без интернета</small></a><a class="mod-link" href="../../ru/motion/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 19C9 19 9 5 21 5"/><circle cx="3" cy="19" r="1.6"/><circle cx="21" cy="5" r="1.6"/></svg></span><b>Анимация</b><small>Кривые, анимации, тряска</small></a><a class="mod-link" href="../../ru/sounds/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9.2a4 4 0 0 1 0 5.6M18.3 6.6a8 8 0 0 1 0 10.8"/></svg></span><b>Звуки</b><small>Переходы и эффекты</small></a><a class="mod-link" href="../../ru/media/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9.2 5 2.8-5 2.8z"/><path d="M12 2.5v2.2M9.8 3.8 12 5.2l2.2-1.4"/></svg></span><b>Медиа</b><small>Видео по ссылке, футажи</small></a><a class="mod-link" href="../../ru/cora/" aria-current="page"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5V7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H8.5z"/><path d="M9 10h.01M12 10h.01M15 10h.01" stroke-width="2.4"/></svg></span><b>Кора</b><small>Помощница внутри Premiere</small></a></div>
+  <ul class="sheet-links">
+    <li><a href="../../ru/buy/">Цена</a></li>
+    <li><a href="../../ru/install/">Установка</a></li>
+    <li><a href="../../ru/#faq">Вопросы</a></li>
+  </ul>
+  <a class="btn btn-fire btn-lg" href="../../ru/buy/">Купить <span dir="ltr">$29.99</span></a>
+</div>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="crumb"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5V7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H8.5z"/><path d="M9 10h.01M12 10h.01M15 10h.01" stroke-width="2.4"/></svg></span>Кора</p>
+        <h1>Знакомьтесь, Кора — ваша помощница</h1>
+        <p class="lead">Кора живёт внутри Cutora. Она покажет всё при первом запуске, ответит на вопросы и порадуется, когда вы закончите видео.</p>
+        <div class="hero-cta"><a class="btn btn-fire btn-lg" href="../../ru/buy/">Купить Cutora <span dir="ltr">$29.99</span></a></div>
+      </div>
+      <div class="cora-stage">
+        <p class="bubble" aria-live="polite">Привет, я Кора. Нажми на меня!</p>
+        <canvas id="cora" role="img" aria-label="Кора, маскот Cutora, следит за курсором"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ask">
+    <div class="wrap">
+      <div class="section-head"><h2>Спросите её</h2><p>Нажмите на вопрос. В панели можно написать что угодно.</p></div>
+      <div class="panel chat">
+        <div class="chat-log" id="chat-log" aria-live="polite"></div>
+        <div class="chips" id="chat-q"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <ul class="blocks">
+        <li><h3>Знает плагин и ремесло</h3><p>Десятки тем: от того, где лежит настройка, до того, как удержать зрителя после первых секунд.</p></li>
+        <li><h3>Работает без интернета</h3><p>Кора — не чат-бот в облаке. Её ответы живут внутри плагина, поэтому они мгновенные и приватные.</p></li>
+        <li><h3>Шесть языков</h3><p>Английский, русский, испанский, португальский, немецкий и арабский. Кора говорит на языке панели.</p></li>
+        <li><h3>Помощь в каждой вкладке</h3><p>В каждой вкладке есть короткое «Как пользоваться», а любая ошибка объясняет, что случилось и что делать дальше.</p></li>
+      </ul>
+    </div>
+  </section>
+  <section class="section">
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>Всё в одной панели за 29,99 $</h2>
+        <p>Шесть модулей, одна оплата, без подписки.</p>
+      </div>
+      <a class="btn btn-fire btn-lg" href="../../ru/buy/">Купить Cutora <span dir="ltr">$29.99</span> <span class="price-old" dir="ltr">$39</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2>Другие модули</h2></div>
+    <div class="others"><a class="mod-link" href="../../ru/cut/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="7" r="2.6"/><circle cx="6" cy="17" r="2.6"/><path d="M8.2 8.4 20 17M8.2 15.6 20 7"/></svg></span><b>Нарезка</b><small>Убирает паузы и дубли</small></a><a class="mod-link" href="../../ru/captions/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 14h4M13 14h4M7 10.5h10"/></svg></span><b>Субтитры</b><small>Анимированные, без интернета</small></a><a class="mod-link" href="../../ru/motion/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 19C9 19 9 5 21 5"/><circle cx="3" cy="19" r="1.6"/><circle cx="21" cy="5" r="1.6"/></svg></span><b>Анимация</b><small>Кривые, анимации, тряска</small></a><a class="mod-link" href="../../ru/sounds/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9.2a4 4 0 0 1 0 5.6M18.3 6.6a8 8 0 0 1 0 10.8"/></svg></span><b>Звуки</b><small>Переходы и эффекты</small></a><a class="mod-link" href="../../ru/media/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9.2 5 2.8-5 2.8z"/><path d="M12 2.5v2.2M9.8 3.8 12 5.2l2.2-1.4"/></svg></span><b>Медиа</b><small>Видео по ссылке, футажи</small></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="../../ru/"><span class="logo-dot" aria-hidden="true"></span>Cutora</a>
+        <p class="foot-about">Cutora — панель для Premiere Pro. Убирает паузы, делает анимированные субтитры, добавляет движение, переходы и звуки, всё на вашем компьютере.</p>
+      </div>
+      <nav aria-labelledby="f-mods">
+        <h2 id="f-mods">Возможности</h2>
+        <ul>
+          <li><a href="../../ru/cut/">Нарезка</a></li>
+          <li><a href="../../ru/captions/">Субтитры</a></li>
+          <li><a href="../../ru/motion/">Анимация</a></li>
+          <li><a href="../../ru/sounds/">Звуки</a></li>
+          <li><a href="../../ru/media/">Медиа</a></li>
+          <li><a href="../../ru/cora/">Кора</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-help">
+        <h2 id="f-help">Помощь</h2>
+        <ul>
+          <li><a href="../../ru/buy/">Цена</a></li>
+          <li><a href="../../ru/install/">Установка</a></li>
+          <li><a href="../../ru/#faq">Вопросы</a></li>
+          <li><a href="mailto:SupportCutora@gmail.com">SupportCutora@gmail.com</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-legal">
+        <h2 id="f-legal">Документы</h2>
+        <ul>
+          <li><a href="../../ru/legal/#terms">Условия</a></li>
+          <li><a href="../../ru/legal/#privacy">Конфиденциальность</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="foot-bottom">© 2026 Cutora. Все права защищены.</p>
+  </div>
+</footer>
+
+<script type="application/json" id="i18n-js">{"cutN":"Вырезать паузы: {n}","cutNone":"На этом уровне пауз нет","undo":"Отменить","cora":["Привет, я Кора. Нажми на меня!","Щекотно!","Я живу прямо в Premiere, рядом с таймлайном.","Вырежу 17 пауз, пока ты пьёшь кофе.","Субтитры примерно на 90 языках. Проверь!","Твои видео я никуда не отправляю. Честно."],"capWords":"Вот так твои субтитры двигаются вместе с каждым сказанным словом","chat":[["Как убрать паузы?","Открой «Нарезку», выбери дорожку с голосом и нажми «Найти паузы». Подвинь ползунок, пока волна не станет как надо, и нажми «Вырезать». Я режу копию, оригинал останется целым."],["Можно поправить слово в субтитрах?","Конечно! Открой вкладку «Текст», исправь слово и нажми «Обновить субтитры». Тайминг останется точно таким же."],["Какую тряску выбрать?","Для разговорных видео попробуй «С рук» или «Невесомость», они мягкие. Для удара или дропа — «Удар» или «Взрыв»."],["Нужен ли Cutora интернет?","Нет. Нарезка, субтитры и анимация работают без интернета. В сеть выходит только импорт по ссылке."]],"link":"https://www.youtube.com/watch?v=cutora-demo","bar":{"en":{"text":"This site is also available in English.","go":"Switch to English","close":"Close"},"ru":{"text":"Этот сайт есть на русском.","go":"Открыть на русском","close":"Закрыть"},"es":{"text":"Este sitio también está en español.","go":"Ver en español","close":"Cerrar"},"pt":{"text":"Este site também está em português.","go":"Ver em português","close":"Fechar"},"de":{"text":"Diese Seite gibt es auch auf Deutsch.","go":"Auf Deutsch ansehen","close":"Schließen"},"ar":{"text":"هذا الموقع متوفر بالعربية أيضًا.","go":"عرض بالعربية","close":"إغلاق"}},"langs":["en","ru","es","pt","de","ar"],"page":"cora/"}</script>
+<script type="module" src="../../js/site.js?v=mupoy3ao"></script>
+</body>
+</html>
+

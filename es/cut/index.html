@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="es" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Quitar pausas en Premiere Pro automáticamente | Cutora</title>
+<meta name="description" content="Quita silencios, muletillas y tomas fallidas en todas las pistas a la vez. Ves cada corte en la onda antes.">
+
+<meta name="theme-color" content="#130b07">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-ojqQw0z5OToSxokUlmT26+bd9fAnWqrDKX73PjeniPM='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Quitar pausas en Premiere Pro automáticamente | Cutora">
+<meta property="og:description" content="Quita silencios, muletillas y tomas fallidas en todas las pistas a la vez. Ves cada corte en la onda antes.">
+<meta property="og:image" content="https://cutoraplugin.github.io/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="en" href="https://cutoraplugin.github.io/cut/">
+<link rel="alternate" hreflang="ru" href="https://cutoraplugin.github.io/ru/cut/">
+<link rel="alternate" hreflang="es" href="https://cutoraplugin.github.io/es/cut/">
+<link rel="alternate" hreflang="pt" href="https://cutoraplugin.github.io/pt/cut/">
+<link rel="alternate" hreflang="de" href="https://cutoraplugin.github.io/de/cut/">
+<link rel="alternate" hreflang="ar" href="https://cutoraplugin.github.io/ar/cut/">
+<link rel="alternate" hreflang="x-default" href="https://cutoraplugin.github.io/cut/">
+<link rel="canonical" href="https://cutoraplugin.github.io/es/cut/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../../fonts/unbounded.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../fonts/onest.woff2" as="font" type="font/woff2" crossorigin>
+<script>try{var t=localStorage.getItem("cutora-theme");document.documentElement.dataset.theme=t==="light"||t==="ember"?t:matchMedia("(prefers-color-scheme: light)").matches?"light":"ember"}catch(e){}</script>
+<link rel="stylesheet" href="../../css/site.css?v=mupoy3ao">
+</head>
+<body data-page="cut">
+<div class="glow-field" aria-hidden="true"></div>
+<a class="visually-hidden skip" href="#main">Ir al contenido</a>
+
+<div class="langbar" id="langbar" hidden>
+  <div class="wrap">
+    <p id="langbar-text"></p>
+    <a class="btn btn-fire" id="langbar-go" href="#"></a>
+    <button class="icon-btn" id="langbar-x" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="../../es/"><span class="logo-dot" aria-hidden="true"></span>Cutora</a>
+    <ul class="menu" aria-label="Menú principal">
+      <li class="has-drop">
+        <button type="button" id="mods-btn" aria-expanded="false" aria-controls="mods-drop">Funciones<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="drop" id="mods-drop" hidden><a class="mod-link" href="../../es/cut/" aria-current="page"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="7" r="2.6"/><circle cx="6" cy="17" r="2.6"/><path d="M8.2 8.4 20 17M8.2 15.6 20 7"/></svg></span><b>Corte</b><small>Quita pausas y repeticiones</small></a><a class="mod-link" href="../../es/captions/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 14h4M13 14h4M7 10.5h10"/></svg></span><b>Subtítulos</b><small>Animados, sin internet</small></a><a class="mod-link" href="../../es/motion/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 19C9 19 9 5 21 5"/><circle cx="3" cy="19" r="1.6"/><circle cx="21" cy="5" r="1.6"/></svg></span><b>Movimiento</b><small>Curvas, animaciones, sacudidas</small></a><a class="mod-link" href="../../es/sounds/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9.2a4 4 0 0 1 0 5.6M18.3 6.6a8 8 0 0 1 0 10.8"/></svg></span><b>Sonidos</b><small>Transiciones y efectos</small></a><a class="mod-link" href="../../es/media/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9.2 5 2.8-5 2.8z"/><path d="M12 2.5v2.2M9.8 3.8 12 5.2l2.2-1.4"/></svg></span><b>Medios</b><small>Vídeos por enlace, clips</small></a><a class="mod-link" href="../../es/cora/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5V7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H8.5z"/><path d="M9 10h.01M12 10h.01M15 10h.01" stroke-width="2.4"/></svg></span><b>Cora</b><small>Tu ayudante dentro de Premiere</small></a></div>
+      </li>
+      <li><a href="../../es/buy/">Precio</a></li>
+      <li><a href="../../es/install/">Instalación</a></li>
+      <li><a href="../../es/#faq">Preguntas</a></li>
+    </ul>
+    <div class="top-tools">
+      <button class="icon-btn" id="theme-toggle" type="button" aria-pressed="true" aria-label="Tema oscuro" title="Tema oscuro">
+        <svg class="when-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+        <svg class="when-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>
+      </button>
+      <button class="icon-btn" id="sound-toggle" type="button" aria-pressed="true" aria-label="Sonidos" title="Sonidos">
+        <svg class="when-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9.2a4 4 0 0 1 0 5.6M18.3 6.6a8 8 0 0 1 0 10.8"/></svg>
+        <svg class="when-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="m16 9.5 5 5M21 9.5l-5 5"/></svg>
+      </button>
+      <details class="lang">
+        <summary aria-label="Idioma">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3Z"/></svg>
+          ES
+        </summary>
+        <ul><li><a href="../../cut/" hreflang="en" lang="en" data-lang-link="en">English</a></li><li><a href="../../ru/cut/" hreflang="ru" lang="ru" data-lang-link="ru">Русский</a></li><li><a href="../../es/cut/" hreflang="es" lang="es" data-lang-link="es" aria-current="true">Español</a></li><li><a href="../../pt/cut/" hreflang="pt" lang="pt" data-lang-link="pt">Português</a></li><li><a href="../../de/cut/" hreflang="de" lang="de" data-lang-link="de">Deutsch</a></li><li><a href="../../ar/cut/" hreflang="ar" lang="ar" data-lang-link="ar">العربية</a></li></ul>
+      </details>
+      <a class="btn btn-fire top-buy" href="../../es/buy/">Comprar</a>
+      <button class="icon-btn burger" id="burger" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Menú">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="mods"><a class="mod-link" href="../../es/cut/" aria-current="page"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="7" r="2.6"/><circle cx="6" cy="17" r="2.6"/><path d="M8.2 8.4 20 17M8.2 15.6 20 7"/></svg></span><b>Corte</b><small>Quita pausas y repeticiones</small></a><a class="mod-link" href="../../es/captions/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 14h4M13 14h4M7 10.5h10"/></svg></span><b>Subtítulos</b><small>Animados, sin internet</small></a><a class="mod-link" href="../../es/motion/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 19C9 19 9 5 21 5"/><circle cx="3" cy="19" r="1.6"/><circle cx="21" cy="5" r="1.6"/></svg></span><b>Movimiento</b><small>Curvas, animaciones, sacudidas</small></a><a class="mod-link" href="../../es/sounds/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9.2a4 4 0 0 1 0 5.6M18.3 6.6a8 8 0 0 1 0 10.8"/></svg></span><b>Sonidos</b><small>Transiciones y efectos</small></a><a class="mod-link" href="../../es/media/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9.2 5 2.8-5 2.8z"/><path d="M12 2.5v2.2M9.8 3.8 12 5.2l2.2-1.4"/></svg></span><b>Medios</b><small>Vídeos por enlace, clips</small></a><a class="mod-link" href="../../es/cora/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5V7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H8.5z"/><path d="M9 10h.01M12 10h.01M15 10h.01" stroke-width="2.4"/></svg></span><b>Cora</b><small>Tu ayudante dentro de Premiere</small></a></div>
+  <ul class="sheet-links">
+    <li><a href="../../es/buy/">Precio</a></li>
+    <li><a href="../../es/install/">Instalación</a></li>
+    <li><a href="../../es/#faq">Preguntas</a></li>
+  </ul>
+  <a class="btn btn-fire btn-lg" href="../../es/buy/">Comprar <span dir="ltr">$29.99</span></a>
+</div>
+
+<main id="main">
+  <section class="mod-hero">
+    <div class="wrap">
+      <div>
+        <p class="crumb"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="7" r="2.6"/><circle cx="6" cy="17" r="2.6"/><path d="M8.2 8.4 20 17M8.2 15.6 20 7"/></svg></span>Corte</p>
+        <h1>Sin pausas, con sincronía</h1>
+        <p class="lead">Cutora escucha tu pista de voz, encuentra cada pausa y la quita de todas las pistas a la vez. Los vídeos hablados quedan ágiles en segundos, no tras una hora de cuchilla.</p>
+        <div class="hero-cta"><a class="btn btn-fire btn-lg" href="../../es/buy/">Obtener Cutora <span dir="ltr">$29.99</span></a></div>
+      </div>
+      <figure class="shot"><img src="../../img/panel/es-1.webp" width="840" height="1800" alt="La pestaña Corte en Premiere Pro con la onda y las pausas marcadas" decoding="async"></figure>
+    </div>
+  </section>
+
+  <section class="section" id="try">
+    <div class="wrap">
+      <div class="section-head"><h2>Mira qué se corta antes de cortar</h2><p>Cutora encuentra las pausas y las marca en la onda de audio. Elige qué cuenta como silencio y corta. Aquí tienes un clip de 90 segundos para probar.</p></div>
+      <div class="panel demo-cut">
+  <div class="demo-top">
+    <div class="slider-field">
+      <label for="threshold"><span>Qué cuenta como silencio</span><output id="threshold-out" for="threshold">-38 dB</output></label>
+      <input id="threshold" type="range" min="-52" max="-26" step="1" value="-38">
+      <small>Más alto detecta más pausas. Más bajo conserva las respiraciones suaves.</small>
+    </div>
+    <dl class="demo-stats">
+      <div><dt>Duración del vídeo</dt><dd id="len">1:30</dd></div>
+      <div><dt>Más corto en</dt><dd id="saved" class="saved">0:00</dd></div>
+    </dl>
+  </div>
+  <div class="wave" aria-hidden="true"></div>
+  <div class="demo-bottom">
+    <button class="btn btn-fire" id="cut-btn" type="button">Cortar pausas</button>
+    <p>En Premiere corta todas las pistas a la vez y cierra los huecos. Trabaja sobre una copia de tu secuencia, y un Ctrl+Z lo devuelve todo.</p>
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <ul class="blocks">
+        <li><h3>Muletillas y repeticiones</h3><p>Con la transcripción Cutora encuentra los «eh», «em» y las frases que dijiste dos veces. Quítalas en la misma pasada o conserva las que quieras.</p></li>
+        <li><h3>Todas las pistas sincronizadas</h3><p>Vídeo, voz, música y subtítulos ya puestos se cortan juntos, y los huecos se cierran solos. Bloquea una pista para dejar la música de fondo entera.</p></li>
+        <li><h3>Tu original está a salvo</h3><p>Cutora corta una copia de la secuencia. Un botón te devuelve al original, y un Ctrl+Z deshace todo el corte.</p></li>
+        <li><h3>Tú decides qué se va</h3><p>Elige Suave, Medio o Intenso, ajusta el margen antes de cada palabra y haz clic en cualquier pausa de la onda para conservarla.</p></li>
+      </ul>
+    </div>
+  </section>
+  <section class="section">
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>Todo en un panel por 29,99 $</h2>
+        <p>Seis módulos, un pago, sin suscripción.</p>
+      </div>
+      <a class="btn btn-fire btn-lg" href="../../es/buy/">Obtener Cutora <span dir="ltr">$29.99</span> <span class="price-old" dir="ltr">$39</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2>Otros módulos</h2></div>
+    <div class="others"><a class="mod-link" href="../../es/captions/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 14h4M13 14h4M7 10.5h10"/></svg></span><b>Subtítulos</b><small>Animados, sin internet</small></a><a class="mod-link" href="../../es/motion/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 19C9 19 9 5 21 5"/><circle cx="3" cy="19" r="1.6"/><circle cx="21" cy="5" r="1.6"/></svg></span><b>Movimiento</b><small>Curvas, animaciones, sacudidas</small></a><a class="mod-link" href="../../es/sounds/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9.2a4 4 0 0 1 0 5.6M18.3 6.6a8 8 0 0 1 0 10.8"/></svg></span><b>Sonidos</b><small>Transiciones y efectos</small></a><a class="mod-link" href="../../es/media/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9.2 5 2.8-5 2.8z"/><path d="M12 2.5v2.2M9.8 3.8 12 5.2l2.2-1.4"/></svg></span><b>Medios</b><small>Vídeos por enlace, clips</small></a><a class="mod-link" href="../../es/cora/"><span class="mod-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5V7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H8.5z"/><path d="M9 10h.01M12 10h.01M15 10h.01" stroke-width="2.4"/></svg></span><b>Cora</b><small>Tu ayudante dentro de Premiere</small></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="../../es/"><span class="logo-dot" aria-hidden="true"></span>Cutora</a>
+        <p class="foot-about">Cutora es un panel para Premiere Pro. Quita pausas, crea subtítulos animados y añade movimiento, transiciones y sonido, todo en tu ordenador.</p>
+      </div>
+      <nav aria-labelledby="f-mods">
+        <h2 id="f-mods">Funciones</h2>
+        <ul>
+          <li><a href="../../es/cut/">Corte</a></li>
+          <li><a href="../../es/captions/">Subtítulos</a></li>
+          <li><a href="../../es/motion/">Movimiento</a></li>
+          <li><a href="../../es/sounds/">Sonidos</a></li>
+          <li><a href="../../es/media/">Medios</a></li>
+          <li><a href="../../es/cora/">Cora</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-help">
+        <h2 id="f-help">Ayuda</h2>
+        <ul>
+          <li><a href="../../es/buy/">Precio</a></li>
+          <li><a href="../../es/install/">Instalación</a></li>
+          <li><a href="../../es/#faq">Preguntas</a></li>
+          <li><a href="mailto:SupportCutora@gmail.com">SupportCutora@gmail.com</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-legal">
+        <h2 id="f-legal">Legal</h2>
+        <ul>
+          <li><a href="../../es/legal/#terms">Términos</a></li>
+          <li><a href="../../es/legal/#privacy">Privacidad</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="foot-bottom">© 2026 Cutora. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script type="application/json" id="i18n-js">{"cutN":"Cortar {n} pausas","cutNone":"No hay pausas a este nivel","undo":"Deshacer","cora":["Hola, soy Cora. ¡Tócame!","¡Me haces cosquillas!","Vivo dentro de Premiere, junto a tu línea de tiempo.","Corto 17 pausas antes de que acabes el café.","Subtítulos en unos 90 idiomas. Pruébame.","Nunca subo tus vídeos a ningún sitio. Prometido."],"capWords":"Así se mueven tus subtítulos con cada palabra que dices","chat":[["¿Cómo quito las pausas?","Abre Corte, elige la pista de voz y pulsa Buscar pausas. Mueve el control hasta que la onda se vea bien y pulsa Cortar. Trabajo sobre una copia, así que tu original queda a salvo."],["¿Puedo corregir una palabra en los subtítulos?","¡Claro! Abre la pestaña Texto, corrige la palabra y pulsa Actualizar subtítulos. El tiempo queda exactamente igual."],["¿Qué sacudida uso?","Para vídeos hablados prueba Cámara en mano o Flotando, son suaves. Para un golpe o un drop, Golpe o Explosión."],["¿Cutora necesita internet?","No. Los cortes, los subtítulos y el movimiento funcionan sin conexión. Solo la importación por enlace se conecta."]],"link":"https://www.youtube.com/watch?v=cutora-demo","bar":{"en":{"text":"This site is also available in English.","go":"Switch to English","close":"Close"},"ru":{"text":"Этот сайт есть на русском.","go":"Открыть на русском","close":"Закрыть"},"es":{"text":"Este sitio también está en español.","go":"Ver en español","close":"Cerrar"},"pt":{"text":"Este site também está em português.","go":"Ver em português","close":"Fechar"},"de":{"text":"Diese Seite gibt es auch auf Deutsch.","go":"Auf Deutsch ansehen","close":"Schließen"},"ar":{"text":"هذا الموقع متوفر بالعربية أيضًا.","go":"عرض بالعربية","close":"إغلاق"}},"langs":["en","ru","es","pt","de","ar"],"page":"cut/"}</script>
+<script type="module" src="../../js/site.js?v=mupoy3ao"></script>
+</body>
+</html>
+
